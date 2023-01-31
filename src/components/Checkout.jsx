@@ -2,6 +2,7 @@ import { addDoc, collection, getFirestore,  } from "firebase/firestore";
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
+import { Navigate } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
 
 
@@ -28,25 +29,6 @@ const Checkout = () =>{
         const ordersCollection=collection(db, "orders");
         addDoc(ordersCollection, order).then((snapShot) => {
             setOrderId(snapShot.id);
-            /*const generateOrder=doc(db,"orders",snapShot.id);
-            updateDoc(generateOrder, {total: order.total * 1.21});*/
-
-            //Modificar un documento en Batch
-            /*
-            const batch =writeBatch(db);
-            const updateOrder = doc(db,"orders",snapShot.id);
-            batch.set(updateOrder,{...order,price_friend:sumTotal() * 0.9});
-            batch.commit();//Efectibizar la actualizacion o seteo de los campos y valores */
-
-            //Modificar todas ordenes con un valor especifico
-            /*const ordersCollection = collection(db,"orders");
-            const batch =writeBatch(db);
-            getDocs(ordersCollection).then(results => {
-                results.docs.map(item => {
-                    let docModificado = doc(db,"orders",item.id); //referencia al documento
-                    batch.update(docModificado, {total:item.total * 1.10}); 
-                });
-            })*/
             clear();
         });
     }
@@ -108,7 +90,7 @@ const Checkout = () =>{
             </div>
             <div className="row">
                 <div className="col text-center">
-                    {orderId ? <div className="alert alert-danger" role="alert">La Orden generada es: <b>{orderId}</b></div> :"" }
+                    {orderId !== "" ? <Navigate to={"/thanks/" + orderId} ></Navigate> : "" }
                 
 
                 </div>

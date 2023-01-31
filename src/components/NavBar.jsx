@@ -7,7 +7,7 @@ const Nav = () => {
     <nav className="navbar navbar-expand-lg navbar-light ">
             <div className="container-fluid">
               <Link className="navbar-brand" to={"/"}>
-                <img src="/public/logo.png" alt="" width="88"></img>
+                <img src={process.env.PUBLIC_URL + "/logo.png"} alt="" width="88"></img>
               </Link>
               <button
                 className="navbar-toggler"
@@ -23,9 +23,6 @@ const Nav = () => {
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                  <div className="col-md-2 aling-items-center text-end">
-                        <a href="http://localhost:3000" button type="button" className="btn btn-outline-dark" >Inicio</a>
-                    </div>
                     <NavLink className="nav-link " aria-current="page" activeClassname="page" to={"/category/accesorios"}>
                       Accesorios
                     </NavLink>
@@ -43,6 +40,11 @@ const Nav = () => {
                   <li className="nav-item">
                     <NavLink className="nav-link" activeClassname="page" to={"/category/suplementos"}>
                       Suplementos
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link" activeClassname="page" to={"todos"}>
+                      Todos
                     </NavLink>
                   </li>
                 </ul>

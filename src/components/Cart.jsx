@@ -2,6 +2,8 @@ import React from "react";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "./context/CartContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash} from "@fortawesome/free-solid-svg-icons";
 
 const Cart = () => {
   const { cart, cartTotal, removeItem ,clear , sumTotal } = useContext(CartContext);
@@ -45,7 +47,7 @@ const Cart = () => {
                             <td className="aling-middle">{item.nombre}</td>
                             <td className="aling-middle text-end">{item.quantity}</td>
                             <td className="aling-middle text-end">${item.quantity * item.precio}</td>
-                            <td className="aling-middle text-end"><Link onClick={() => {removeItem(item.id)}} title={"Eliminar Producto"}><img src={"../public/trash-fill.svg"} alt={"Eliminar producto"} width={32}></img></Link></td>
+                            <td className="aling-middle text-end"><Link onClick={() => {removeItem(item.id)}} title={"Eliminar Producto"}><FontAwesomeIcon icon={faTrash} alt={"Eliminar producto"} width={32}></FontAwesomeIcon></Link></td>
 
                             </tr>
                     ))

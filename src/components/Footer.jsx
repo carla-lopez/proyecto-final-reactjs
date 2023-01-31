@@ -1,4 +1,8 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
+
+
 
 
 
@@ -7,12 +11,17 @@ const Footer =() =>{
     return(
         <div className="container py-5">
             <div className="row">
-                <div className="col-md-6">
-                    <a href="/" rel="noreferrer" className="fab fa-whatsapp mx-1"> Whatsapp HanmaRTX</a>
-                    <a href="/" rel="noreferrer" className="fab fa-instagram mx-1"> Instagram HanmaRTX</a>
-                    <a href="/" rel="noreferrer" className="fab fa-facebook mx-1"> Facebook HanmaRTX</a>
-                    <a href="/" rel="noreferrer" className="fab fa-youtube mx-1">Canal Youtube HanmaRTX</a>
-                </div>
+            <footer className="footer">
+      <a href="https://www.facebook.com/"  className="facebook">
+        <FontAwesomeIcon icon={faFacebook} size="2x" />
+      </a>
+      <a href="https://twitter.com/"  className="twitter">
+        <FontAwesomeIcon icon={faTwitter} size="2x" />
+      </a>
+      <a href="https://www.instagram.com/"  className="instagram">
+        <FontAwesomeIcon icon={faInstagram} size="2x" />
+      </a>
+    </footer>
             </div>
             <div className="row">
                 <div className="col-md-10">
@@ -32,7 +41,7 @@ const Footer =() =>{
                  </ul>
                 </div>
                 <div className="col-md-2 text-end">
-                    <p><img src="/public/logo.png" alt="logo HanmaTRX" width="40"></img> © HANMATRX</p>
+                    <p><img src={process.env.PUBLIC_URL + "/logo.png"} alt="logo HanmaTRX" width="40"></img> © HANMATRX</p>
                 </div>
             </div>
 
